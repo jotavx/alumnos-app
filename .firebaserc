@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "club-picahuesos": {
+      "hosting": {
+        "alumnos": [
+          "club-picahuesos"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "club-picahuesos"
+  }
+}

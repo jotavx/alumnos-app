@@ -1,0 +1,5 @@
+.gradient-custom {
+  background: url("../../../assets/fondo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

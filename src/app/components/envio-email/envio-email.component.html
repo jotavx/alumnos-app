@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="datosCorreo">
+        <div *ngIf="loading" class="spinner-border float-end mb-3" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Lista destinatarios</mat-label>
+          <mat-select (selectionChange)="seleccionarDestinatarios($event.value)">
+            <mat-option disabled selected>Seleccionar destinatarios</mat-option>
+            <mat-option value="todos">Todos los alumnos</mat-option>
+            <mat-option value="categoriaA">Categoria A</mat-option>
+            <mat-option value="categoriaB">Categoria B</mat-option>
+            <mat-option value="categoriaC">Categoria C</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button class="btn btn-primary mx-3" (click)="abrirDialogoSeleccionAlumnos()">Elegir destinatario</button>
+        <button class="btn btn-dark " (click)="limpiarEmails()">Limpiar emails</button>
+        <br>
+        <label class="form-label mb-2">Emails</label>
+        <textarea type="text" class="form-control" placeholder="nombre@ejemplo.com" formControlName="correo"
+          [value]="listaCorreosSeleccionada" readonly></textarea>
+        <label class="form-label mb-2">Asunto</label>
+        <input type="text" class="form-control" placeholder="Título" formControlName="asunto">
+        <label class="form-label mb-2" mb-2>Mensaje</label>
+        <textarea class="form-control" rows="
+        10" formControlName="mensaje" placeholder="Mensaje"></textarea>
+      </form>
+
+
+      <button class="btn btn-success float-end mt-2" (click)="  envioCorreo()">Enviar</button>
+      <button routerLink="/list-alumnos" class="btn btn-dark float-end mx-2 mt-2">Volver</button>
+    </div>
+  </div>
+</div>
