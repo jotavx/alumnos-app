@@ -93,4 +93,16 @@ export class SeleccionAlumnosDialogComponent implements OnInit {
     // Puedes usar la lista de correos seleccionados como desees en tu lógica
     this.aplicarSeleccion();
   }
+
+  getColorForFechaAbonado(fechaAbonado: Date): string {
+    const hoy = new Date();
+    const fechaAbonadoPlus30Days = new Date(fechaAbonado);
+    fechaAbonadoPlus30Days.setDate(fechaAbonadoPlus30Days.getDate() + 30);
+
+    if (hoy > fechaAbonadoPlus30Days) {
+      return 'red'; // Si han pasado más de 30 días, devolvemos rojo
+    } else {
+      return 'green'; // Si está dentro de los 30 días, devolvemos verde
+    }
+  }
 }
