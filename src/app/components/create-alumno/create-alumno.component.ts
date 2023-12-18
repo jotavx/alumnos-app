@@ -226,7 +226,7 @@ export class CreateAlumnoComponent {
     const correoParams = {
       email: email, // Obtenemos el email del alumno del campo de entrada
       asunto: 'Pago registrado correctamente',
-      mensaje: 'El pago se ha registrado correctamente.',
+      mensaje: 'El pago del mes se ha registrado correctamente.',
     };
 
     this.userService.enviarCorreo(correoParams).subscribe(
@@ -250,8 +250,13 @@ export class CreateAlumnoComponent {
         }
       },
       (error) => {
-        // Manejo de errores
-        console.error('Hubo un error al enviar el mensaje', error);
+        this.toastr.error(
+          'Se ha producido un error',
+          'Email de Pago Registrado',
+          {
+            positionClass: 'toast-bottom-right',
+          }
+        );
       }
     );
   }

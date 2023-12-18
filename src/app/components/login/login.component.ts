@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/services/user.service';
 
@@ -9,12 +9,13 @@ import { UserService } from 'src/services/user.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  loginError = false;
   formLogin: FormGroup;
 
   constructor(private userService: UserService, private router: Router) {
     this.formLogin = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl(),
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
     });
   }
 
@@ -27,6 +28,8 @@ export class LoginComponent implements OnInit {
         console.log();
         this.router.navigate(['/list-alumnos']);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        this.loginError = true;
+      });
   }
 }
