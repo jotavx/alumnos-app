@@ -1,14 +1,14 @@
 <app-navbar></app-navbar>
-<div class="container mt-4">
+<div class="container-personalized mt-5">
   <div class="card">
     <div class="card-body">
-      <span class="h3">
-        Listado de Alumnos
-      </span>
-      <button class="btn btn-primary float-end mb-5" routerLink="/create-alumno">Agregar Alumno/a</button>
-      <button class="btn btn-primary float-end mb-5 mx-3" routerLink="/envio-email">Enviar email</button>
-      <button class="btn btn-primary float-end mb-5" (click)="exportExcel()">Exportar a Excel</button>
-      <br>
+      <div class="panel-buttons mb-3">
+        <button class="btn btn-dark float-end mx-2 panel" routerLink="/create-alumno"><small>Agregar
+            Alumno/a</small></button>
+        <button class="btn btn-dark float-end mx-2 panel" routerLink="/envio-email"><small>Enviar Email</small></button>
+        <button class="btn btn-dark float-end mx-2 panel" (click)="exportExcel()"><small>Exportar Excel</small></button>
+      </div>
+
       <mat-form-field>
         <mat-label>Buscar</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
@@ -20,11 +20,10 @@
           <ng-container matColumnDef="nombreCompleto">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Completo </th>
             <td mat-cell *matCellDef="let row">
-              <span
-                matTooltip="Fecha de Creación: {{row.fechaCreacion.toDate() | date: 'dd/MM/yyyy'}} Última Actualización: {{row.fechaActualizacion.toDate() | date: 'dd/MM/yyyy'}}">
-                <i class="fas fa-info-circle" style="color: green; "></i>
-              </span>
-              {{row.nombre}}
+              <p class="name-center"> <span
+                  matTooltip="Fecha de Creación: {{row.fechaCreacion.toDate() | date: 'dd/MM/yyyy'}} Última Actualización: {{row.fechaActualizacion.toDate() | date: 'dd/MM/yyyy'}}">
+                  <i class="fas fa-info-circle me-2" style="color: rgb(10, 118, 15); "></i>
+                </span> {{row.nombre}}</p>
             </td>
           </ng-container>
 
@@ -68,7 +67,7 @@
           <ng-container matColumnDef="acciones">
             <th mat-header-cell *matHeaderCellDef> Acciones </th>
             <td mat-cell *matCellDef="let row">
-              <i class="fas fa-edit fa-lg text-success" style="margin-right: 12px;"
+              <i class="fas fa-edit fa-lg text-primary" style="margin-right: 12px;"
                 [routerLink]="['/edit-alumno/', row.id]"></i>
               <i (click)="openDialog(row.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
             </td>

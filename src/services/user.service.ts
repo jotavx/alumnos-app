@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  // private baseUrl = 'https://jotavx-picahuesos-backend.onrender.com';
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://jotavx-picahuesos-backend.onrender.com';
+  // private baseUrl = 'http://localhost:3000';
 
   constructor(private auth: Auth, private http: HttpClient) {}
 

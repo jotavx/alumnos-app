@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container mt-4">
+<div class="container mt-5">
   <div class="card">
     <div class="card-body">
       <form [formGroup]="datosCorreo">
@@ -16,8 +16,9 @@
             <mat-option value="categoriaC">Categoria C</mat-option>
           </mat-select>
         </mat-form-field>
-        <button class="btn btn-primary mx-3" (click)="abrirDialogoSeleccionAlumnos()">Elegir destinatario</button>
-        <button class="btn btn-dark " (click)="limpiarEmails()">Limpiar emails</button>
+        <button class="btn btn-primary ms-3 mb-3" (click)="abrirDialogoSeleccionAlumnos()">Elegir
+          destinatario</button>
+        <button class="btn btn-dark ms-3 mb-3" (click)="limpiarEmails()">Limpiar emails</button>
         <br>
         <label class="form-label mb-2">Emails</label>
         <textarea type="text" class="form-control" placeholder="nombre@ejemplo.com" formControlName="correo"
@@ -28,10 +29,9 @@
         <textarea class="form-control" rows="
         10" formControlName="mensaje" placeholder="Mensaje"></textarea>
       </form>
-
-
       <button class="btn btn-success float-end mt-2" (click)="  envioCorreo()">Enviar</button>
       <button routerLink="/list-alumnos" class="btn btn-dark float-end mx-2 mt-2">Volver</button>
     </div>
   </div>
+  <br><br><br>
 </div>

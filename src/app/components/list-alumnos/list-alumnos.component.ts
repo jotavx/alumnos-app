@@ -110,9 +110,9 @@ export class ListAlumnosComponent implements OnInit {
     fechaAbonadoPlus30Days.setDate(fechaAbonadoPlus30Days.getDate() + 30);
 
     if (hoy > fechaAbonadoPlus30Days) {
-      return 'red'; // Si han pasado más de 30 días, devolvemos rojo
+      return 'rgb(141, 37, 17)'; // Si han pasado más de 30 días, devolvemos rojo
     } else {
-      return 'green'; // Si está dentro de los 30 días, devolvemos verde
+      return 'rgb(55, 109, 6)'; // Si está dentro de los 30 días, devolvemos verde
     }
   }
 }
