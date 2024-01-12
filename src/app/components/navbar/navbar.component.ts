@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/services/user.service';
+import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-navbar',
@@ -8,14 +10,15 @@ import { UserService } from 'src/services/user.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
-  onClick() {
-    this.userService
-      .logout()
-      .then(() => {
-        this.router.navigate(['/login']);
-      })
-      .catch((error) => console.log(error));
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LogoutDialogComponent, {
+      width: '450px',
+    });
   }
 }

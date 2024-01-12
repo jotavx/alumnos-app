@@ -31,6 +31,7 @@ import { SeleccionAlumnosDialogComponent } from './components/seleccion-alumnos-
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { LoginComponent } from './components/login/login.component';
+import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { LoginComponent } from './components/login/login.component';
     EnvioEmailComponent,
     SeleccionAlumnosDialogComponent,
     LoginComponent,
+    LogoutDialogComponent,
   ],
   imports: [
     BrowserModule,
