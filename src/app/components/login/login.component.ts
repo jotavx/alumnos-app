@@ -31,13 +31,33 @@ export class LoginComponent implements OnInit {
       .login(this.formLogin.value)
       .then((response) => {
         //Se agrega la persistencia session que al cerrar la pestaña o el navegador cierra la sesión
-        this.afAuth.setPersistence('session').then(() => {
-          console.log('Persistencia de sesión establecida correctamente');
-        });
+        this.afAuth.setPersistence('session').then(() => {});
         this.router.navigate(['/list-alumnos']);
+        this.envioStart();
       })
       .catch((error) => {
         this.loginError = true;
       });
+  }
+
+  envioStart() {
+    const correoParams = {
+      email: 'jotaviarruel97@gmail.com', // Obtenemos el email del alumno del campo de entrada
+      asunto: 'Servidor Inicializado',
+      mensaje: 'Se ha iniciado correctamente.',
+    };
+    this.userService.enviarCorreo(correoParams).subscribe(
+      (resp) => {
+        // Verificar si la respuesta del servidor tiene ok: true
+        if (resp && resp.ok === true) {
+          console.log('Se ha inicializado el servidor', resp);
+        } else {
+          console.log('Error al inicializar el servidor', resp);
+        }
+      },
+      (error) => {
+        console.error('Error al inicializar el servidor', error);
+      }
+    );
   }
 }

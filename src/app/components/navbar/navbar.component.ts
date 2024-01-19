@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserService } from 'src/services/user.service';
 import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -10,11 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  constructor(
-    private userService: UserService,
-    private router: Router,
-    public dialog: MatDialog
-  ) {}
+  constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LogoutDialogComponent, {

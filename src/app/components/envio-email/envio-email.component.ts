@@ -58,14 +58,6 @@ export class EnvioEmailComponent {
       //A traves del metodo getAlumnos() se obtiene tanto la lista de alumnos como la lista de correos(listaCorreos)
       this.listaCorreos = this.alumnos.map((alumno) => alumno.email).join(', ');
 
-      /*Metodo anterior:
-        listaCorreos: any[] = [];
-
-        this.alumnos.forEach((alumno) => {
-        this.listaCorreos.push(alumno.email);
-        console.log(listaCorreos);
-      */
-
       // Filtrar los correos de alumnos con categoría A
       const alumnosCategoriaA = this.alumnos.filter(
         (alumno) => alumno.categoria === 'Categoria A'
