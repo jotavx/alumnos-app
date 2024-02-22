@@ -5,6 +5,7 @@ import { ListAlumnosComponent } from './components/list-alumnos/list-alumnos.com
 import { EnvioEmailComponent } from './components/envio-email/envio-email.component';
 import { LoginComponent } from './components/login/login.component';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   //Para cambiar redireccion al ingresar al url modificar el siguiente path
@@ -13,8 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
 
   {
-    path: 'list-alumnos',
-    component: ListAlumnosComponent,
+    path: 'home',
+    component: HomeComponent,
     ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   {
@@ -37,7 +38,7 @@ const routes: Routes = [
     component: EnvioEmailComponent,
     ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
-  { path: '**', redirectTo: 'list-alumnos', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

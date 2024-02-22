@@ -40,9 +40,10 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  //Se utiliza para activar el servidor
   envioStart() {
     const correoParams = {
-      email: 'jotaviarruel97@gmail.com', // Obtenemos el email del alumno del campo de entrada
+      email: 'jotaviarruel97@gmail.com', // Destinatario
       asunto: 'Servidor Inicializado',
       mensaje: 'Se ha iniciado correctamente.',
     };

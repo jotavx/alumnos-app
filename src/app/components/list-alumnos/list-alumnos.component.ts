@@ -7,6 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import * as XLSX from 'xlsx';
+import { CreateAlumnComponent } from '../create-alumn/create-alumn.component';
 
 @Component({
   selector: 'app-list-alumnos',
@@ -14,6 +15,7 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./list-alumnos.component.css'],
 })
 export class ListAlumnosComponent implements OnInit {
+  clickedRows = new Set<any>();
   fileName = 'ExcelSheet.xlsx';
   alumnos: any[] = [];
   displayedColumns: string[] = [
@@ -110,9 +112,16 @@ export class ListAlumnosComponent implements OnInit {
     fechaAbonadoPlus30Days.setDate(fechaAbonadoPlus30Days.getDate() + 30);
 
     if (hoy > fechaAbonadoPlus30Days) {
-      return 'rgb(141, 37, 17)'; // Si han pasado más de 30 días, devolvemos rojo
+      return '#8D2511'; // Si han pasado más de 30 días, devolvemos rojo
     } else {
-      return 'rgb(55, 109, 6)'; // Si está dentro de los 30 días, devolvemos verde
+      return '#376D06'; // Si está dentro de los 30 días, devolvemos verde
     }
+  }
+
+  openCreateDialog(row?: any): void {
+    const dialogRef = this.dialog.open(CreateAlumnComponent, {
+      width: '700px',
+      data: row,
+    });
   }
 }
