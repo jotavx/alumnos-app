@@ -45,11 +45,17 @@
       </tr>
     </table>
 
-    <button mat-raised-button color="primary" type="submit" class=" float-end mx-3"
+    <!-- <button mat-raised-button color="primary" type="submit" class=" float-end mx-3"
       (click)="agregarCorreos()">Aplicar</button>
     <button mat-raised-button color="accent" class=" float-end" (click)="cerrarDialogo()">Volver</button>
-
+ -->
 
     <mat-paginator [pageSizeOptions]="[5]" aria-label="Select page of users"></mat-paginator>
   </div>
 </mat-dialog-content>
+<mat-dialog-actions align="end">
+
+  <button mat-raised-button color="accent" mat-dialog-close>Volver</button>
+  <button mat-raised-button color="primary" type="submit" (click)="agregarCorreos()">Aplicar</button>
+
+</mat-dialog-actions>
